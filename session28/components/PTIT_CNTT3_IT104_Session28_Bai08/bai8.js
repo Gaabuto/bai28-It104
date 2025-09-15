@@ -2,14 +2,17 @@ function myFilter(array,number,callback){
     const result = [];
     
     for (let i = 0; i < array.length; i++) {
-            result.push(callback(array[i],number));
+            if(callback(array[i],number)){
+                result.push(array[i]);
+            }
     }
     return result;
 }
 function filter(value,number){
     if(value===number){
-        return value;
+        return true;
     }
+    return false;
 }
 
-myFilter([1,2,3,4,4,4,4,4,5],4,filter);
+console.log(myFilter([1,2,3,4,4,4,4,4,5],4,filter));
